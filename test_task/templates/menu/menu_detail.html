@@ -1,0 +1,25 @@
+
+<ul class="nav flex-column nav-pills">
+    {% for first in menu.first_level.all %}
+      <a class="nav-link 
+      {% if url  == first.slug %}active{% endif %}
+      " href="{% url 'menu:fl' menu.slug first.slug %}">
+        {{ first.name }}
+      </a>
+      {% for second in first.second_level.all %}
+        <a class="nav-link
+        {% if url  == second.slug %}active{% endif %}
+        " href="{% url 'menu:sl' menu.slug first.slug second.slug %}">
+          --{{ second.name }}
+        </a>
+        {% for third in second.third_level.all %}
+        <a class="nav-link 
+        {% if url  == third.slug %}active{% endif %}
+        " href="{% url 'menu:tl' menu.slug first.slug second.slug third.slug %}">
+          ----{{ third.name }}
+        </a>
+      
+        {% endfor %}
+      {% endfor %}
+    {% endfor %}
+</ul>
