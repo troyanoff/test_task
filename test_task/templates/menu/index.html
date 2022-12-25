@@ -4,5 +4,9 @@
     Список меню</a>
   </header>
   <main> 
+    {% for menu in menus %}
+      <a href="{% url 'menu:menu' menu.slug %}"> {{ menu.name }} </a>
+      <br>
+    {% endfor %}
   </main>
 </body>

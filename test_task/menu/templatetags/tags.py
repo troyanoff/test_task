@@ -9,6 +9,5 @@ register = template.Library()
 def draw_menu(slug, url):
     url_list = url.strip('/').split('/')
     url_last = url_list[-1]
-    url_first = url_list[1]
     menu = get_object_or_404(Menu, slug=slug)
-    return {'menu': menu, 'url': url_last, 'url_first': url_first}
+    return {'menu': menu, 'url': url_last}

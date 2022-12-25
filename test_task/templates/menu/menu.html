@@ -4,6 +4,10 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 </head>
 <body>
+    <header>
+        <a class="button" href="{% url 'menu:index' %}">
+        Список меню</a>
+    </header>
     <main>
         <h2>{{menu.name}}</h2>
         {% draw_menu menu.slug request.path %}
